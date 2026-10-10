@@ -1,0 +1,164 @@
+From caa670416654490630c6ce802202bef0e066c275 Mon Sep 17 00:00:00 2001
+From: Gary Lin <glin@suse.com>
+Date: Fri, 16 Aug 2024 14:10:21 +0800
+Subject: [PATCH 07/13] asn1_test: include asn1_test.h only
+
+This commit removes all the headers and only uses asn1_test.h.
+To avoid including int.h from grub-core/lib/libtasn1-grub/lib/,
+CONST_DOWN is defined in reproducers.c.
+
+Signed-off-by: Daniel Axtens <dja@axtens.net>
+Signed-off-by: Gary Lin <glin@suse.com>
+Reviewed-by: Daniel Kiper <daniel.kiper@oracle.com>
+---
+ grub-core/tests/asn1/tests/CVE-2018-1000654.c   | 4 +---
+ grub-core/tests/asn1/tests/Test_overflow.c      | 7 +------
+ grub-core/tests/asn1/tests/Test_simple.c        | 6 +-----
+ grub-core/tests/asn1/tests/Test_strings.c       | 6 +-----
+ grub-core/tests/asn1/tests/object-id-decoding.c | 6 +-----
+ grub-core/tests/asn1/tests/object-id-encoding.c | 6 +-----
+ grub-core/tests/asn1/tests/octet-string.c       | 6 +-----
+ grub-core/tests/asn1/tests/reproducers.c        | 8 ++------
+ 8 files changed, 9 insertions(+), 40 deletions(-)
+
+diff --git a/grub-core/tests/asn1/tests/CVE-2018-1000654.c b/grub-core/tests/asn1/tests/CVE-2018-1000654.c
+index 68eb079..c2f210e 100644
+--- a/grub-core/tests/asn1/tests/CVE-2018-1000654.c
++++ b/grub-core/tests/asn1/tests/CVE-2018-1000654.c
+@@ -24,9 +24,7 @@
+ /* Description: reproducer for CVE-2018-1000654			*/
+ /****************************************************************/
+ 
+-#include <stdio.h>
+-#include <string.h>
+-#include <stdlib.h>
++#include "asn1_test.h"
+ #include "CVE-2018-1000654-1_asn1_tab.h"
+ #include "CVE-2018-1000654-2_asn1_tab.h"
+ 
+diff --git a/grub-core/tests/asn1/tests/Test_overflow.c b/grub-core/tests/asn1/tests/Test_overflow.c
+index 0ecbf34..7d70f6d 100644
+--- a/grub-core/tests/asn1/tests/Test_overflow.c
++++ b/grub-core/tests/asn1/tests/Test_overflow.c
+@@ -22,12 +22,7 @@
+ 
+ /* Written by Simon Josefsson */
+ 
+-#include <stdio.h>
+-#include <string.h>
+-#include <stdlib.h>
+-#include <limits.h>
+-
+-#include "libtasn1.h"
++#include "asn1_test.h"
+ 
+ int
+ main (int argc, char **argv)
+diff --git a/grub-core/tests/asn1/tests/Test_simple.c b/grub-core/tests/asn1/tests/Test_simple.c
+index d054def..a1865f5 100644
+--- a/grub-core/tests/asn1/tests/Test_simple.c
++++ b/grub-core/tests/asn1/tests/Test_simple.c
+@@ -22,11 +22,7 @@
+ 
+ #include <config.h>
+ 
+-#include <stdio.h>
+-#include <string.h>
+-#include <stdlib.h>
+-
+-#include "libtasn1.h"
++#include "asn1_test.h"
+ 
+ struct tv
+ {
+diff --git a/grub-core/tests/asn1/tests/Test_strings.c b/grub-core/tests/asn1/tests/Test_strings.c
+index 6944060..f5fc0b8 100644
+--- a/grub-core/tests/asn1/tests/Test_strings.c
++++ b/grub-core/tests/asn1/tests/Test_strings.c
+@@ -22,11 +22,7 @@
+ 
+ #include <config.h>
+ 
+-#include <stdio.h>
+-#include <string.h>
+-#include <stdlib.h>
+-
+-#include "libtasn1.h"
++#include "asn1_test.h"
+ 
+ struct tv
+ {
+diff --git a/grub-core/tests/asn1/tests/object-id-decoding.c b/grub-core/tests/asn1/tests/object-id-decoding.c
+index 8691401..400dc92 100644
+--- a/grub-core/tests/asn1/tests/object-id-decoding.c
++++ b/grub-core/tests/asn1/tests/object-id-decoding.c
+@@ -20,11 +20,7 @@
+ 
+ #include <config.h>
+ 
+-#include <stdio.h>
+-#include <string.h>
+-#include <stdlib.h>
+-
+-#include "libtasn1.h"
++#include "asn1_test.h"
+ 
+ struct tv
+ {
+diff --git a/grub-core/tests/asn1/tests/object-id-encoding.c b/grub-core/tests/asn1/tests/object-id-encoding.c
+index 90d69d0..67bf81f 100644
+--- a/grub-core/tests/asn1/tests/object-id-encoding.c
++++ b/grub-core/tests/asn1/tests/object-id-encoding.c
+@@ -20,11 +20,7 @@
+ 
+ #include <config.h>
+ 
+-#include <stdio.h>
+-#include <string.h>
+-#include <stdlib.h>
+-
+-#include "libtasn1.h"
++#include "asn1_test.h"
+ 
+ struct tv
+ {
+diff --git a/grub-core/tests/asn1/tests/octet-string.c b/grub-core/tests/asn1/tests/octet-string.c
+index 1bd8108..6b2eade 100644
+--- a/grub-core/tests/asn1/tests/octet-string.c
++++ b/grub-core/tests/asn1/tests/octet-string.c
+@@ -22,11 +22,7 @@
+ 
+ #include <config.h>
+ 
+-#include <stdio.h>
+-#include <string.h>
+-#include <stdlib.h>
+-
+-#include "libtasn1.h"
++#include "asn1_test.h"
+ 
+ struct tv
+ {
+diff --git a/grub-core/tests/asn1/tests/reproducers.c b/grub-core/tests/asn1/tests/reproducers.c
+index 667536d..c0cb694 100644
+--- a/grub-core/tests/asn1/tests/reproducers.c
++++ b/grub-core/tests/asn1/tests/reproducers.c
+@@ -24,13 +24,9 @@
+ /* Description: run reproducers for several fixed issues        */
+ /****************************************************************/
+ 
+-#include <stdio.h>
+-#include <string.h>
+-#include <stdlib.h>
++#include "asn1_test.h"
+ 
+-#include <libtasn1.h>
+-
+-#include <int.h>
++#define CONST_DOWN        (1U<<29)
+ 
+ /* produces endless loop (fixed by d4b624b2):
+  * The following translates into a single node with all pointers
+-- 
+2.43.0
+

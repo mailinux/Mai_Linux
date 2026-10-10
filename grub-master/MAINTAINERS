@@ -1,0 +1,35 @@
+List of current GRUB maintainers and some basic information about the project
+=============================================================================
+
+Here is the list of current GRUB maintainers:
+  - Leo Sandoval <lsandova@redhat.com>,
+  - Marta Lewandowska <mlewando@redhat.com>,
+  - Alex Burmashev <alexander.burmashev@oracle.com>,
+  - Vladimir 'phcoder' Serbinenko <phcoder@gmail.com>.
+
+The maintainers drive and overlook the GRUB development.
+
+If you found a security vulnerability in the GRUB please check the SECURITY
+file to get more information how to properly report this kind of bugs to
+the maintainers.
+
+The GRUB development happens on the grub-devel mailing list [1]. The latest
+GRUB source code is available at freedesktop git repository [2].
+
+Users can also ask for help on the same grub-devel mailing list [1].
+
+List of past GRUB maintainers and people who strongly contributed to the project
+================================================================================
+
+Here is the list, sorted alphabetically, of past GRUB maintainers and people who
+strongly contributed to the project:
+  - Andrei Borzenkov,
+  - Bryan Ford,
+  - Daniel Kiper,
+  - Erich Stefan Boleyn,
+  - Gordon Matzigkeit,
+  - Yoshinori K. Okuji.
+
+
+[1] https://lists.freedesktop.org/postorius/lists/grub-devel.lists.freedesktop.org/
+[2] https://gitlab.freedesktop.org/gnu-grub/grub/
