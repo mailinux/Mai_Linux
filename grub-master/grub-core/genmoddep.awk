@@ -63,7 +63,13 @@ END {
     }
     modlist = ""
     depcount[mod] = 0
-    n = asorti(uniqmods, w)
+    n = 0
+    for (k in uniqmods) w[++n] = k
+    for (i = 2; i <= n; i++) {
+      key = w[i]; j = i - 1
+      while (j >= 1 && w[j] > key) { w[j+1] = w[j]; j-- }
+      w[j+1] = key
+    }
     for (i = 1; i <= n; i++) {
       depmod = w[i]
       modlist = modlist " " depmod;

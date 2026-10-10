@@ -1,0 +1,18 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Mai Linux: construir e rodar",
+            "type": "shell",
+            "command": "./Construção.sh && qemu-system-x86_64 -m 1024 -cdrom MaiLinux.iso -boot d -machine accel=kvm:tcg",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}

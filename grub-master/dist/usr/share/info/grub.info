@@ -1,0 +1,680 @@
+This is grub.info, produced by makeinfo version 7.1.1 from grub.texi.
+
+This manual is for GNU GRUB (version 2.17, 7 October 2026).
+
+   Copyright ©
+1999,2000,2001,2002,2004,2006,2008,2009,2010,2011,2012,2013 Free
+Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections.
+INFO-DIR-SECTION Kernel
+START-INFO-DIR-ENTRY
+* GRUB: (grub).                 The GRand Unified Bootloader
+* grub-install: (grub)Invoking grub-install.    Install GRUB on your drive
+* grub-mkconfig: (grub)Invoking grub-mkconfig.  Generate GRUB configuration
+* grub-mkpasswd-argon2: (grub)Invoking grub-mkpasswd-argon2.
+* grub-mkpasswd-pbkdf2: (grub)Invoking grub-mkpasswd-pbkdf2.
+* grub-mkrelpath: (grub)Invoking grub-mkrelpath.
+* grub-mkrescue: (grub)Invoking grub-mkrescue.  Make a GRUB rescue image
+* grub-mount: (grub)Invoking grub-mount.        Mount a file system using GRUB
+* grub-probe: (grub)Invoking grub-probe.        Probe device information
+* grub-script-check: (grub)Invoking grub-script-check.
+END-INFO-DIR-ENTRY
+
+
+Indirect:
+grub.info-1: 1217
+grub.info-2: 307790
+
+Tag Table:
+(Indirect)
+Node: Top1217
+Node: Introduction3788
+Node: Overview4232
+Node: Overview-Footnotes6230
+Ref: Overview-Footnote-16291
+Node: History6457
+Node: Changes from GRUB Legacy8547
+Node: Features11081
+Node: Features-Footnotes17838
+Ref: Features-Footnote-117899
+Ref: Features-Footnote-217995
+Ref: Features-Footnote-318142
+Node: Role of a boot loader18287
+Node: Role of a boot loader-Footnotes19626
+Ref: Role of a boot loader-Footnote-119713
+Node: Naming convention19792
+Node: OS-specific notes about grub tools22759
+Node: Installation23795
+Node: Installing GRUB using grub-install24933
+Node: Making a GRUB bootable CD-ROM27288
+Node: Making a GRUB bootable CD-ROM-Footnotes29203
+Ref: Making a GRUB bootable CD-ROM-Footnote-129306
+Node: Device map29381
+Node: BIOS installation31368
+Node: Booting36019
+Node: General boot methods36554
+Node: Loading an operating system directly37251
+Node: Kexec37978
+Node: Chain-loading38741
+Node: Loopback booting39705
+Node: LVM cache booting41463
+Node: OS-specific notes42729
+Node: GNU/Hurd43019
+Node: GNU/Linux44150
+Node: NetBSD45512
+Node: DOS/Windows47006
+Node: Configuration48800
+Node: Simple configuration49595
+Node: Configuring access levels68956
+Node: Root Identification Heuristics73023
+Node: Shell-like scripting76183
+Node: Shell-like scripting-Footnotes84760
+Ref: Shell-like scripting-Footnote-184845
+Node: Multi-boot manual config84972
+Node: Embedded configuration88595
+Node: Theme file format91531
+Ref: Pixmap-styled progress bar92996
+Ref: Plain progress bar, drawn with solid color.93007
+Ref: An example of the slices (in red) used for a terminal window. This drawing was created and sliced in Inkscape_, as the next section explains.96498
+Node: Network116961
+Node: Serial terminal121696
+Node: Vendor power-on keys124131
+Node: Images126110
+Node: Core image size limitation131237
+Node: Filesystem133824
+Node: Device syntax134537
+Node: File name syntax137674
+Node: Block list syntax138788
+Node: Interface139688
+Node: Command-line interface140516
+Node: Command-line interface-Footnotes142436
+Ref: Command-line interface-Footnote-1142525
+Node: Menu interface142620
+Node: Menu entry editor143763
+Node: Environment144505
+Node: Special environment variables145293
+Node: appendedsig_key_mgmt146524
+Node: biosnum147210
+Node: blsuki_save_default147766
+Node: check_appended_signatures148122
+Node: check_signatures148803
+Node: chosen149128
+Node: cmdpath149575
+Node: color_highlight150006
+Node: color_normal150426
+Node: config_directory152181
+Node: config_file152477
+Node: cryptodisk_passphrase_tries152902
+Node: debug153318
+Node: default154309
+Node: fallback155765
+Node: gfxmode156102
+Node: gfxpayload156932
+Node: gfxterm_font158122
+Node: grub_cpu158430
+Node: grub_platform158730
+Node: icondir159034
+Node: lang159355
+Node: locale_dir159840
+Node: lockdown160345
+Node: menu_color_highlight160591
+Node: menu_color_normal161093
+Node: net_<INTERFACE>_boot_file161602
+Node: net_<INTERFACE>_clientid161837
+Node: net_<INTERFACE>_clientuuid162079
+Node: net_<INTERFACE>_dhcp_server_name162332
+Node: net_<INTERFACE>_domain162595
+Node: net_<INTERFACE>_extensionspath162842
+Node: net_<INTERFACE>_hostname163097
+Node: net_<INTERFACE>_ip163336
+Node: net_<INTERFACE>_mac163552
+Node: net_<INTERFACE>_next_server163773
+Node: net_<INTERFACE>_rootpath164016
+Node: net_default_interface164255
+Node: net_default_ip164475
+Node: net_default_mac164672
+Node: net_default_server164868
+Node: pager165061
+Node: prefix165321
+Node: pxe_default_server165785
+Node: root165968
+Node: shim_lock166528
+Node: superusers166799
+Node: theme167052
+Node: timeout167377
+Node: timeout_style168038
+Node: tpm_fail_fatal168462
+Node: Environment block169147
+Node: Special environment block variables171109
+Node: saved_entry171580
+Node: next_entry172041
+Node: env_block172510
+Node: Passing environment variables through Xen173279
+Node: Modules175866
+Node: acpi_module182438
+Node: adler32_module182705
+Node: affs_module182961
+Node: afs_module183235
+Node: afsplitter_module183506
+Node: ahci_module183783
+Node: all_video_module184134
+Node: aout_module184414
+Node: appleldr_module184797
+Node: archelp_module185035
+Node: argon2_module185275
+Node: argon2_test_module185477
+Node: at_keyboard_module185714
+Node: ata_module185936
+Node: backtrace_module186145
+Node: bfs_module186393
+Node: biosdisk_module186672
+Node: bitmap_module186905
+Node: bitmap_scale_module187122
+Node: bli_module187325
+Node: blocklist_module188366
+Node: boot_module188639
+Node: boottime_module188893
+Node: bsd_module189248
+Node: bswap_test_module189707
+Node: btrfs_module189943
+Node: bufio_module190238
+Node: cacheinfo_module190480
+Node: cat_module190788
+Node: cbfs_module191050
+Node: cbls_module191361
+Node: cbmemc_module191571
+Node: cbtable_module191807
+Node: cbtime_module192001
+Node: chain_module192240
+Node: cmdline_cat_test_module192515
+Node: cmosdump_module192764
+Node: cmostest_module193057
+Node: cmp_module193370
+Node: cmp_test_module193619
+Node: configfile_module193954
+Node: connectefi_module194303
+Node: cpio_module194786
+Node: cpio_be_module195066
+Node: cpuid_module195368
+Node: crc64_module195620
+Node: crypto_cipher_mode_test_module195814
+Node: crypto_module196060
+Node: cryptodisk_module196295
+Node: cs5536_module196581
+Node: ctz_test_module196786
+Node: date_module197033
+Node: datehook_module197293
+Node: datetime_module197599
+Node: disk_module197844
+Node: diskfilter_module198039
+Node: div_module198345
+Node: div_test_module198542
+Node: dm_nv_module198760
+Node: drivemap_module198967
+Node: dsa_sexp_test_module199229
+Node: echo_module199449
+Node: efi_gop_module199688
+Node: efibootnext_module199919
+Node: efiemu_module200203
+Node: efifwsetup_module200488
+Node: efinet_module200766
+Node: efitextmode_module201002
+Node: ehci_module201283
+Node: elf_module201514
+Node: emunet_module201715
+Node: emupci_module201912
+Node: erofs_module202122
+Node: escc_module202321
+Node: eval_module202513
+Node: exfat_module202782
+Node: exfctest_module203005
+Node: ext2_module203280
+Node: extcmd_module203527
+Node: f2fs_module203798
+Node: fat_module203996
+Node: fdt_module204243
+Node: file_module204668
+Node: fixvideo_module204939
+Node: font_module205332
+Node: freedos_module205642
+Node: fshelp_module205855
+Node: functional_test_module206068
+Node: gcry_arcfour_module206363
+Node: gcry_aria_module206759
+Node: gcry_blake2_module206997
+Node: gcry_blowfish_module207264
+Node: gcry_camellia_module207519
+Node: gcry_cast5_module207773
+Node: gcry_crc_module208047
+Node: gcry_des_module208330
+Node: gcry_dsa_module208729
+Node: gcry_gost28147_module208992
+Node: gcry_gostr3411_94_module209256
+Node: gcry_idea_module209536
+Node: gcry_keccak_module209823
+Node: gcry_md4_module210111
+Node: gcry_md5_module210451
+Node: gcry_rfc2268_module210792
+Node: gcry_rijndael_module211146
+Node: gcry_rmd160_module211455
+Node: gcry_rsa_module211713
+Node: gcry_salsa20_module211976
+Node: gcry_seed_module212222
+Node: gcry_serpent_module212463
+Node: gcry_sha1_module212731
+Node: gcry_sha256_module213089
+Node: gcry_sha512_module213398
+Node: gcry_sm3_module213706
+Node: gcry_sm4_module213946
+Node: gcry_stribog_module214179
+Node: gcry_tiger_module214454
+Node: gcry_twofish_module214730
+Node: gcry_whirlpool_module214997
+Node: gdb_module215257
+Node: geli_module215819
+Node: gettext_module216185
+Node: gfxmenu_module216476
+Node: gfxterm_module216802
+Node: gfxterm_background_module217052
+Node: gfxterm_menu_module217458
+Node: gptsync_module217708
+Node: gzio_module217944
+Node: halt_module218400
+Node: hashsum_module218645
+Node: hdparm_module219078
+Node: hello_module219672
+Node: help_module219945
+Node: hexdump_module220180
+Node: hfs_module220452
+Node: hfsplus_module220753
+Node: hfspluscomp_module220982
+Node: http_module221242
+Node: ieee1275_fb_module221577
+Node: iorw_module221822
+Node: iso9660_module222283
+Node: jfs_module222640
+Node: jpeg_module222928
+Node: json_module223194
+Node: keylayouts_module223537
+Node: keystatus_module224187
+Node: ldm_module224458
+Node: legacy_password_test_module224833
+Node: legacycfg_module225102
+Node: linux_module225639
+Node: linux16_module225952
+Node: loadbios_module226306
+Node: loadenv_module226767
+Node: loopback_module227207
+Node: ls_module227440
+Node: lsacpi_module227648
+Node: lsapm_module227926
+Node: lsdev_module228191
+Node: lsefi_module228467
+Node: lsefimmap_module228720
+Node: lsefisystab_module228998
+Node: lsefivar_module229288
+Node: lsmmap_module229586
+Node: lspci_module229849
+Node: lssal_module230093
+Node: lsspd_module230398
+Node: lsxen_module230698
+Node: luks_module230936
+Node: luks2_module231176
+Node: lvm_module231407
+Node: lzopio_module231784
+Node: macbless_module231999
+Node: macho_module232368
+Node: mda_text_module232607
+Node: mdraid09_module232867
+Node: mdraid09_be_module233279
+Node: mdraid1x_module233694
+Node: memdisk_module234008
+Node: memrw_module234237
+Node: memtools_module234861
+Node: minicmd_module235146
+Node: minix_module235658
+Node: minix2_module235942
+Node: minix2_be_module236230
+Node: minix3_module236536
+Node: minix3_be_module236828
+Node: minix_be_module237136
+Node: mmap_module237440
+Node: morse_module237734
+Node: mpi_module237958
+Node: msdospart_module238282
+Node: mul_test_module238539
+Node: multiboot_module238779
+Node: multiboot2_module239200
+Node: nand_module239562
+Node: nativedisk_module239780
+Node: net_module240021
+Node: newc_module241244
+Node: nilfs2_module241998
+Node: normal_module242300
+Node: ntfs_module242522
+Node: ntfscomp_module242817
+Node: ntldr_module243136
+Node: odc_module243396
+Node: offsetio_module243872
+Node: ofnet_module244096
+Node: ohci_module244317
+Node: part_acorn_module244555
+Node: part_amiga_module244819
+Node: part_apple_module245064
+Node: part_bsd_module245311
+Node: part_dfly_module245550
+Node: part_dvh_module245796
+Node: part_gpt_module246049
+Node: part_msdos_module246308
+Node: part_plan_module246584
+Node: part_sun_module246829
+Node: part_sunpc_module247070
+Node: parttool_module247317
+Node: password_module247559
+Node: password_argon2_module247976
+Node: password_pbkdf2_module248258
+Node: pata_module248536
+Node: pbkdf2_module248745
+Node: pbkdf2_test_module248997
+Node: pci_module249228
+Node: pcidump_module249448
+Node: pgp_module249770
+Node: plainmount_module250332
+Node: plan9_module250629
+Node: play_module250838
+Node: png_module251088
+Node: priority_queue_module251308
+Node: probe_module251569
+Node: procfs_module251829
+Node: progress_module252079
+Node: pubkey_module252294
+Node: pxe_module252540
+Node: pxechain_module252801
+Node: raid5rec_module253036
+Node: raid6rec_module253251
+Node: random_module253463
+Node: rdmsr_module253753
+Node: read_module254009
+Node: reboot_module254247
+Node: regexp_module254494
+Node: reiserfs_module254848
+Node: relocator_module255143
+Node: romfs_module255439
+Node: rsa_sexp_test_module255741
+Node: scsi_module255960
+Node: sdl_module256310
+Node: search_module256770
+Node: search_fs_file_module257064
+Node: search_fs_uuid_module257388
+Node: search_label_module257721
+Node: sendkey_module258044
+Node: serial_module258309
+Node: setjmp_module258617
+Node: setjmp_test_module258847
+Node: setpci_module259105
+Node: sfs_module259354
+Node: shift_test_module259644
+Node: signature_test_module259889
+Node: sleep_module260159
+Node: sleep_test_module260437
+Node: smbios_module260665
+Node: spkmodem_module260935
+Node: squash4_module261324
+Node: strtoull_test_module261553
+Node: suspend_module261796
+Node: syslinuxcfg_module262064
+Node: tar_module262605
+Node: terminal_module262831
+Node: terminfo_module263140
+Node: test_module263424
+Node: test_blockarg_module263724
+Node: testload_module264039
+Node: testspeed_module264335
+Node: tftp_module264589
+Node: tga_module264897
+Node: time_module265109
+Node: tpcm_module265359
+Node: tpm_module266833
+Node: tr_module267110
+Node: trig_module267457
+Node: true_module267776
+Node: truecrypt_module268028
+Node: ubootnet_module268277
+Node: udf_module268535
+Node: ufs1_module268845
+Node: ufs1_be_module269129
+Node: ufs2_module269433
+Node: uhci_module269718
+Node: usb_module269929
+Node: usb_keyboard_module270139
+Node: usbms_module270339
+Node: usbserial_common_module270548
+Node: usbserial_ftdi_module270902
+Node: usbserial_pl2303_module271213
+Node: usbserial_usbdebug_module271524
+Node: usbtest_module271984
+Node: vbe_module272312
+Node: verifiers_module272521
+Node: vga_module272762
+Node: vga_text_module272973
+Node: video_module273192
+Node: video_bochs_module273402
+Node: video_cirrus_module273665
+Node: video_colors_module273918
+Node: video_fb_module274168
+Node: videoinfo_module274386
+Node: videotest_module274690
+Node: videotest_checksum_module275017
+Node: virtionet_module275329
+Node: wrmsr_module276473
+Node: xen_boot_module276740
+Node: xfs_module277009
+Node: xnu_module277190
+Node: xnu_uuid_module277655
+Node: xnu_uuid_test_module277911
+Node: xzio_module278155
+Node: zfs_module278352
+Node: zfscrypt_module278534
+Node: zfsinfo_module278806
+Node: zstd_module279106
+Node: Commands279295
+Node: Menu-specific commands280184
+Node: menuentry280903
+Node: submenu282492
+Node: Loader commands283025
+Node: chainloader285521
+Node: initrd286548
+Node: initrd16288744
+Node: linux289350
+Node: linux16290767
+Node: xen_hypervisor291472
+Node: xen_module291916
+Node: General commands292417
+Node: serial292867
+Node: terminal_input296564
+Node: terminal_output297234
+Node: terminfo297905
+Node: Command-line commands299192
+Node: [307790
+Node: acpi307961
+Node: append_add_db_cert309239
+Node: append_add_db_hash309943
+Node: append_add_dbx_cert311061
+Node: append_add_dbx_hash311977
+Node: append_list_db313704
+Node: append_list_dbx314290
+Node: append_verify314861
+Node: authenticate315560
+Node: background_color315991
+Node: background_image316655
+Node: badram317198
+Node: blocklist318575
+Node: blscfg318798
+Node: boot322185
+Node: bootnext322496
+Node: btrfs-get-default-subvol323458
+Node: btrfs-info324104
+Node: btrfs-list-subvols324555
+Node: cat325178
+Node: clear326171
+Node: cmosclean326334
+Node: cmosdump326623
+Node: cmostest326903
+Node: cmp327246
+Node: configfile328001
+Node: connectefi328420
+Node: cpuid329291
+Node: crc329859
+Node: cryptocheck330126
+Node: cryptomount330675
+Node: cutmem333527
+Node: date334395
+Node: devicetree334924
+Node: distrust335451
+Node: drivemap336247
+Node: echo337084
+Node: efitextmode338059
+Node: eval340293
+Node: export340568
+Node: false340868
+Node: fdtdump341157
+Node: file341898
+Node: file_key_protector_init345010
+Node: file_key_protector_clear346276
+Node: fwsetup346571
+Node: gdbinfo346939
+Node: gettext347478
+Node: gptsync347924
+Node: halt348866
+Node: hashsum349246
+Node: help350547
+Node: hexdump351000
+Node: insmod351827
+Node: keystatus352033
+Node: list_env352658
+Node: list_trusted353013
+Node: load_env353599
+Node: loadfont355717
+Node: loopback356081
+Node: ls356673
+Node: lsfonts357200
+Node: lsfreemem357371
+Node: lsmod357557
+Node: lsmem357733
+Node: lsmemregions357922
+Node: md5sum358226
+Node: memmove_bench358512
+Node: mfa_key_protector_init362790
+Node: mfa_key_protector_clear364236
+Node: module364524
+Node: multiboot364838
+Node: nativedisk365936
+Node: normal366320
+Node: normal_exit367088
+Node: parttool367395
+Node: password368922
+Node: password_argon2369189
+Node: password_pbkdf2369597
+Node: plainmount370082
+Node: plainmount-Footnotes373844
+Ref: plainmount-Footnote-1373909
+Node: play374000
+Node: probe374728
+Node: pw_key_protector_init375215
+Node: pw_key_protector_clear375895
+Node: rdmsr376182
+Node: read376971
+Node: reboot377414
+Node: regexp377582
+Node: rmmod378114
+Node: save_env378292
+Node: search379319
+Node: sendkey381388
+Node: set387902
+Node: sha1sum388314
+Node: sha256sum388592
+Node: sha512sum388884
+Node: sleep389174
+Node: smbios389687
+Node: source392751
+Node: stress_big_allocs393312
+Node: test393543
+Node: tpm2_key_protector_init397080
+Node: tpm2_key_protector_clear401641
+Node: tpm2_dump_pcr401944
+Node: tpm_record_pcrs402520
+Node: true405226
+Node: trust405518
+Node: uki406331
+Node: unset408095
+Node: verify_detached408294
+Node: videoinfo409350
+Node: wrmsr409615
+Node: Networking commands410393
+Node: net_add_addr411600
+Node: net_add_dns412124
+Node: net_add_route412400
+Node: net_bootp412928
+Node: net_bootp6413291
+Node: net_del_addr413656
+Node: net_del_dns413897
+Node: net_del_route414144
+Node: net_dhcp414378
+Node: net_dhcp6416443
+Node: net_get_dhcp_option416872
+Node: net_ipv6_autoconf417376
+Node: net_ls_addr417801
+Node: net_ls_cards418049
+Node: net_ls_dns418285
+Node: net_ls_routes418516
+Node: net_nslookup418723
+Node: net_set_vlan419028
+Node: Undocumented commands419491
+Node: Internationalisation425203
+Node: Security432050
+Node: Authentication and authorization433145
+Node: Using GPG-style digital signatures437000
+Node: Using appended signatures440395
+Node: UEFI secure boot and shim447165
+Node: Secure Boot Advanced Targeting448302
+Node: Measured Boot450988
+Node: Lockdown452990
+Node: TPM2 key protector454502
+Node: MFA key protector470089
+Node: Signing certificate and hash files473374
+Node: Signing GRUB itself474408
+Node: Hardening479036
+Node: Platform limitations481339
+Node: Platform-specific operations489427
+Node: Supported kernels490576
+Node: Troubleshooting498213
+Node: GRUB only offers a rescue shell498482
+Node: Firmware stalls instead of booting GRUB501555
+Node: User-space utilities502186
+Node: Invoking grub-install503103
+Node: Invoking grub-mkconfig505326
+Node: Invoking grub-mkpasswd-argon2506008
+Node: Invoking grub-mkpasswd-pbkdf2506911
+Node: Invoking grub-mkrelpath507638
+Node: Invoking grub-mkrescue508460
+Node: Invoking grub-mount510318
+Node: Invoking grub-probe513472
+Node: Invoking grub-protect516230
+Node: Invoking grub-script-check525338
+Node: Obtaining and Building GRUB526099
+Node: Reporting bugs527353
+Node: Future529977
+Node: Copying This Manual530374
+Node: GNU Free Documentation License530602
+Node: Index552994
+
+End Tag Table
+
+
+Local Variables:
+coding: utf-8
+End:
